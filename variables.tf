@@ -13,13 +13,28 @@ variable "instance_type" {
   description = "What kind of servers to run (e.g. t2.large)."
 }
 
-variable "subnet_ids" {
-  type        = "list"
-  description = "A list of the subnet IDs in which to create EC2 instances."
-}
-
 variable "aws_region" {
   type        = "string"
   description = "The AWS region in which to deploy resources"
   default     = "us-east-1"
+}
+
+variable "vpc_remote_state_bucket" {
+  type        = "string"
+  description = "The name of the S3 bucket containing the VPC remote state."
+}
+
+variable "vpc_remote_state_key" {
+  type        = "string"
+  description = "The name of the object key for the VPC remote state."
+}
+
+variable "vpc_remote_state_lock_table" {
+  type        = "string"
+  description = "The name of the DynamoDB table to use for locking on the VPC remote state."
+}
+
+variable "vpc_remote_state_region" {
+  type        = "string"
+  description = "The region of the S3 bucket containing the VPC remote state."
 }
