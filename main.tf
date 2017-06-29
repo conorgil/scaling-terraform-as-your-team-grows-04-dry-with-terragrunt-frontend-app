@@ -25,7 +25,7 @@ resource "aws_instance" "web" {
 
   ami           = "${var.ami_id}"
   instance_type = "${var.instance_type}"
-  subnet_id     = "${element(data.terraform_remote_state.vpc.subnet_ids, count.index)}"
+  subnet_id     = "${element(data.terraform_remote_state.vpc.public_subnet_ids, count.index)}"
 
   tags {
     Name = "scaling_terraform_as_your_team_grows example"
